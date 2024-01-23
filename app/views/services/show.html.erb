@@ -1,0 +1,10 @@
+<h1>My service</h1>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @service.name %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= @service.description %></h6>
+    <p class="card-text"><%= @service.price_hours %></p>
+    <%= link_to "all services", services_path %>
+  </div>
+</div>
