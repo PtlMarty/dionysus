@@ -1,0 +1,44 @@
+.card-service {
+  overflow: hidden;
+  height: 350px;
+  width: 450px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.card-service img {
+  filter: grayscale(100%);
+  height: 100px;
+  width: 100px;
+  object-fit:cover;
+  align-items: center;
+}
+
+// service name
+.card-service h2 {
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+// user or the sommelier's name
+.card-service h3 {
+  font-size: 24px;
+  font-style: condensed italic;
+}
+
+// price
+.card-service h4 {
+
+}
+
+// description
+.card-service p {
+  font-size: 16px;
+}
+
+// card_service's card shape, to edit here
+.card-service .card-service-infos {
+  padding: 16px;
+}
