@@ -1,46 +1,32 @@
-.card-service {
-  overflow: hidden;
-  height: 200px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-}
-
-.card-service-infos img {
-  filter: grayscale(100%);
-  height: 100px;
-  width: 100px;
-  object-fit:cover;
-  border-radius: 50%;
-}
-
-// service name
-.card-service h2 {
-  font-size: 24px;
-  text-transform: uppercase;
-}
-
-// user or the sommelier name
-.card-service h3 {
-  font-size: 24px;
-  font-style: condensed italic;
-}
-
-// price
-.card-service h4 {
-  font-size: 16px;
-  font-style: condensed italic;
-}
-
-// description
-.card-service p {
-  font-size: 16px;
-}
-
-// card_service's card shape, to edit here
-.card-service .card-service-infos {
+.card {
   padding: 16px;
+  border-radius: 20px;
+  margin: 1em;
+  background-color: $white;
+}
+
+.card-service {
+  min-width: 400px;
+}
+
+.card-body {
+  text-align: center;
+  margin: 1em;
+}
+
+.card-body p {
+  font-size: 16px;
+  font-style: italic;
+}
+
+.card-body img {
+  height: 150px;
+  width: 150px;
+  padding: 16px;
+  border-radius: 50%;
+  filter: grayscale(100%);
+}
+
+.card-body button {
+  display: inline-block;
 }

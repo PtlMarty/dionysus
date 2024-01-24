@@ -1,42 +1,18 @@
 <h1>All ours users services</h1>
 
 <%# iteration on all service with name, description and price in bootstrap card %>
-<div>
-<% @services.each do |service| %>
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title"><%= service.name %></h5>
-      <h6 class="card-subtitle mb-2 text-muted"><%= service.description %></h6>
-      <p class="card-text"><%= service.price_hours %></p>
-      <%= link_to "more details", service_path(service) %>
-    </div>
-  </div>
-<% end %>
-</div>
 
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Service name sample</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Wine expertise at your fingertips on everything from the vineyard to the bottle</h6>
-      <p class="card-text">JPY 8000 PER HOUR </p>
-      <%# <%= link_to "more details", service_path(@service) %> %>
-    </div>
-  </div>
-
+<div class = "container-services">
+  <% @services.each do |service| %>
     <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Service name sample</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Wine expertise at your fingertips on everything from the vineyard to the bottle</h6>
-      <p class="card-text">JPY 8000 PER HOUR </p>
-      <%# <%= link_to "more details", service_path(@service) %> %>
+      <div class="card-body">
+        <h5 class="card-title"><%= service.name %></h5>
+        <img src="https://cdn.pixabay.com/photo/2016/11/24/13/00/white-male-1856175_1280.jpg" alt="sample photo">
+        <p class="card-text">JPY <%= service.price_hours %> PER HOUR </p>
+        <br>
+        <h6 class="card-subtitle mb-2 text-muted"><%= service.description %></h6>
+        <%= link_to "details", service_path(service), class: "btn btn-primary", method: :get %>
+      </div>
     </div>
-  </div>
-
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Service name sample</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Wine expertise at your fingertips on everything from the vineyard to the bottle</h6>
-      <p class="card-text">JPY 8000 PER HOUR </p>
-      <%# <%= link_to "more details", service_path(@service) %> %>
-    </div>
-  </div>
+  <% end %>
+</div>
