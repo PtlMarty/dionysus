@@ -30,7 +30,7 @@ puts "Creating services..."
 10.times do |i|
 Service.create!(
   # Name, prices, description
-  name: Faker::Lorem.words(number: 3),
+  name: Faker::Lorem.sentence(word_count: 2),
   price_hours: Faker::Number.between(from: 5000, to: 100000),
   description: Faker::Lorem.paragraph(sentence_count: 1),
   user: User.all.sample
