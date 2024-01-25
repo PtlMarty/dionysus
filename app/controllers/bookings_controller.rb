@@ -1,35 +1,27 @@
 class BookingsController < ApplicationController
-
+  # as a user i can see all booking request from other users
   def index
     @bookings = current_user.bookings
+    @my_bookings_as_provider = current_user.bookings_as_provider
   end
 
-
-  def new
-    @booking = Booking.new
+# accept or reject the booking by clicking on a button
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.status = "accepted"
+    @booking.save
+    redirect_to bookings_path
   end
 
-  # def create
-  #   @booking = Booking.new(booking_params)
-  #   if @booking.save
-  #     flash[:success] = "Booking created"
-  #     redirect_to @booking
-  #   else
-  #     flash.now[:error] = "Booking not created"
-  #     render 'new'
-  #   end
-  # end
-
-  def show
-    @bookings = Booking.find(params[:id])
+  def decline
+    @booking = Booking.find(params[:id])
+    @booking.status = "rejected"
+    @booking.save
+    redirect_to bookings_path
   end
-
-
   private
 
-    def booking_params
-      params.require(:booking).permit(:id)
-    end
-
-
+  def booking_params
+    params.require(:booking).permit(:status)
+  end
 end
