@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   # as a user i can see all booking request from other users
   def index
+    @bookings = current_user.bookings
     @my_bookings_as_provider = current_user.bookings_as_provider
   end
 
