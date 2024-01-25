@@ -1,10 +1,13 @@
 <h1>My service</h1>
 
+<p>My profile</p>
 <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title"><%= @service.name %></h5>
+    <%= cl_image_tag(@service.user.picture, { alt: @service.user.first_name, class: "profile-picture" })%>
     <h6 class="card-subtitle mb-2 text-muted"><%= @service.description %></h6>
-    <p class="card-text"><%= @service.price_hours %></p>
+    <p class="card-text">JYP <%= @service.price_hours %> per hour</p>
     <%= link_to "all services", services_path %>
   </div>
+<p><%=link_to "List booking", new_user_session_path, class: "btn btn-primary"%></p>
 </div>
