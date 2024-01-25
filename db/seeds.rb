@@ -37,3 +37,17 @@ Service.create!(
 )
 end
 puts "done"
+
+puts "Creating bookings..."
+10.times do |i|
+Booking.create!(
+  # start_date, end_date, status, comment
+  comment: Faker::Lorem.paragraph(sentence_count: 1),
+  start_date: Faker::Time.between(from: DateTime.now - 5, to: DateTime.now),
+  end_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now),
+  status: "pending",
+  user: User.all.sample,
+  service: Service.all.sample
+)
+end
+puts "done"

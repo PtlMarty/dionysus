@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h1>Bookings as provider</h1>
+      <% if @my_bookings_as_provider.empty? %>
+        <p>No bookings yet</p>
+      <% else %>
+        <% @my_bookings_as_provider.each do |booking| %>
+          <div class="card">
+            <div class="card-body">
+              <%= booking.user.name %>
+              <%= booking.start_date %>
+              <%= booking.end_date %>
+              <%= booking.comment %>
+              <%= booking.status %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
