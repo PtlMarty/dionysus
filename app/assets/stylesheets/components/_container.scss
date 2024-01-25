@@ -1,0 +1,18 @@
+.container {
+  padding: 16px;
+}
+
+.container-services {
+  padding: 16px;
+  justify-content: space-evenly;
+  display: flex;
+  margin: 1em;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 500px) {
+  .container-services {
+    flex-direction: column; /* Change to column layout on small screens */
+    align-items: center; /* Center items in the column */
+  }
+}
