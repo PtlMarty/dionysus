@@ -1,0 +1,21 @@
+<h1>See all Bookings</h1>
+
+<div class="container-i-booked">
+  <h2>Who I booked</h2>
+    <div class="row">
+      <div class="col-6">
+      <div class="who-i-booked"><% @bookings.each do |booking| %>
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= booking.service.name %></h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%= booking.service.description %></h6>
+              <p class="card-text"><%= booking.service.price_hours %></p>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</div>
+
+<h2>Who booked me</h2>
