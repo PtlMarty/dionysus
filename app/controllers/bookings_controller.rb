@@ -1,11 +1,7 @@
 class BookingsController < ApplicationController
   # as a user i can see all booking request from other users
   def index
-    @bookings = Booking.all
-    @my_services = Service.where(user: current_user)
-    @my_bookings = Booking.service.where(user: current_user)
-
-
+    @my_bookings_as_provider = current_user.bookings_as_provider
   end
 
 # accept or reject the booking by clicking on a button
