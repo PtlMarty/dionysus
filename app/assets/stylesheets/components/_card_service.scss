@@ -1,0 +1,32 @@
+.card {
+  padding: 16px;
+  border-radius: 20px;
+  margin: 1em;
+  background-color: $white;
+}
+
+.card-service {
+  min-width: 400px;
+}
+
+.card-body {
+  text-align: center;
+  margin: 1em;
+}
+
+.card-body p {
+  font-size: 16px;
+  font-style: italic;
+}
+
+.card-body img {
+  height: 150px;
+  width: 150px;
+  padding: 16px;
+  border-radius: 50%;
+  filter: grayscale(100%);
+}
+
+.card-body button {
+  display: inline-block;
+}
