@@ -1,13 +1,18 @@
 <h1>All ours users services</h1>
+<div>
+  <%# <%= render 'services/new_form' %>
+</div>
 
 <%# iteration on all service with name, description and price in bootstrap card %>
-<% @services.each do |service| %>
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title"><%= service.name %></h5>
-      <h6 class="card-subtitle mb-2 text-muted"><%= service.description %></h6>
-      <p class="card-text"><%= service.price_hours %></p>
-      <%= link_to "more details", service_path(service) %>
+<div>
+  <% @services.each do |service| %>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= service.name %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= service.description %></h6>
+        <p class="card-text"><%= service.price_hours %></p>
+        <%= link_to "more details", service_path(service) %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
