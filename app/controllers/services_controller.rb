@@ -9,18 +9,24 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
   end
 
+  def new
+  end
+
   def create
+    @services = Service.all
     @service = Service.new(service_params)
     if @service.save
-      redirect_to service_path
+
+      redirect_to services_path
     else
-      render :new, status: :unprocessable_entity
+      raise
+      render :index, status: :unprocessable_entity
     end
   end
 
   private
 
   def service_params
-    params.require(:service).permit(:name, :description, :price_hours)
+    params.require(:service).permit(:name, :description, :price_hours).merge(user_id: current_user.id)
   end
 end
