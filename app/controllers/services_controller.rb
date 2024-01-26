@@ -7,6 +7,7 @@ class ServicesController < ApplicationController
   def show
     # GET /services/:id
     @service = Service.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
