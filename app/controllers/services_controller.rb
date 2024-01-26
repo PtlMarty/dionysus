@@ -9,11 +9,18 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
   end
 
+  def create
+    @service = Service.new(service_params)
+    if @service.save
+      redirect_to service_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def service_params
     params.require(:service).permit(:name, :description, :price_hours)
   end
-
-
 end
