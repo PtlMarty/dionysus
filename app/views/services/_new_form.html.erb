@@ -1,0 +1,8 @@
+<%= simple_form_for service do |f| %> <%#not to use @ but see the render in index%>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :price_hours %>
+
+  <%# <%= f.input :image we need this in the future %>
+  <%= f.submit 'Create', class: "btn btn-secondary" %>
+<% end %>
