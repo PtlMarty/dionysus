@@ -1,44 +1,52 @@
-<h1>See all Bookings</h1>
-
-<div class="container-i-booked">
-    <div class="row">
-      <div class="col-6">
-        <h1>Who I booked</h1>
-          <div class="who-i-booked"><% @bookings.each do |booking| %>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title"><%= booking.service.name %></h5>
-                  <h6 class="card-subtitle mb-2 text-muted"><%= booking.service.description %></h6>
-                  <p class="card-text"><%= booking.service.price_hours %></p>
-                </div>
-              </div>
-              <% end %>
-            </div>
-          </div>
-    </div>
+<div class="container-booking-title">
+  <h1>See all Bookings</h1>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <h1>Bookings as provider</h1>
-      <% if @my_bookings_as_provider.empty? %>
-        <p>No bookings yet</p>
-      <% else %>
-        <% @my_bookings_as_provider.each do |booking| %>
-          <div class="card">
-            <div class="card-body">
-              <%= booking.user.first_name %>
-              <%= booking.user.last_name %>
-              <%= booking.start_date %>
-              <%= booking.end_date %>
-              <%= booking.comment %>
-              <%= booking.status %>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-      <%= link_to "new booking",  services_path %>
+<div class="d-flex container-bookings">
+    <div class="container">
+      <div class="col-6">
+          <h1>Who I booked</h1>
+          <% if @bookings.empty? %>
+            <p>No bookings yet</p>
+          <% else %>
+            <% @bookings.each do |booking| %>
+              <div class="card">
+                <div class="card-body">
+                  <%= booking.user.first_name %>
+                  <%= booking.user.last_name %>
+                  <%= booking.start_date %>
+                  <%= booking.end_date %>
+                  <%= booking.comment %>
+                  <%= booking.status %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+          <%= link_to "new booking",  services_path %>
+        </div>
+      </div>
     </div>
-  </div>
+    <div class="container">
+          <div class="col-6">
+            <h1>Bookings as provider</h1>
+            <% if @my_bookings_as_provider.empty? %>
+              <p>No bookings yet</p>
+            <% else %>
+              <% @my_bookings_as_provider.each do |booking| %>
+                <div class="card">
+                  <div class="card-body">
+                    <%= booking.user.first_name %>
+                    <%= booking.user.last_name %>
+                    <%= booking.start_date %>
+                    <%= booking.end_date %>
+                    <%= booking.comment %>
+                    <%= booking.status %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+            <%= link_to "new booking",  services_path %>
+          </div>
+      </div>
+    </div>
 </div>
