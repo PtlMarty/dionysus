@@ -1,9 +1,11 @@
+require 'rest-client'
+require 'net/http'
+require 'json'
 
 puts "Cleaning database..."
 Service.destroy_all
 User.destroy_all
 
-puts "Creating users..."
 
 puts "Creating Martin..."
 User.create(
@@ -15,14 +17,23 @@ User.create(
   )
 puts "done"
 
+# fetching api to create random users with restapi
+puts "Creating users..."
 10.times do |i|
+  url = URI("https://randomuser.me/api/")
+  response = Net::HTTP.get(url)
+  json = JSON.parse(response)
+  results = json["results"]
+  results.each do |result|
   User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
+    first_name: result["name"]["first"],
+    last_name: result["name"]["last"],
+    email: result["email"],
+    picture: result["picture"]["large"],
     password: "password",
     password_confirmation: "password",
   )
+  end
 end
 puts "done"
 
