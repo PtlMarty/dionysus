@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-dionysus">
   <div class="container-fluid">
     <div class= "container-logo">
-      <%= link_to "services", class: "navbar-brand" do %>
+      <%= link_to "/", class: "navbar-brand" do %>
         <%= image_tag "logo.png" %>
       <% end %>
       <h4> Dionysus </h4>
@@ -14,10 +14,10 @@
       <ul class="navbar-nav me-auto">
         <%# if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "My services", "services", class: "nav-link" %>
+            <%= link_to "My services", services_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "My bookings", "bookings", class: "nav-link" %>
+            <%= link_to "My bookings", bookings_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
