@@ -9,5 +9,5 @@
     <p class="card-text">JYP <%= @service.price_hours %> per hour</p>
     <%= link_to "all services", services_path %>
   </div>
-<p><%=link_to "List booking", new_user_session_path, class: "btn btn-primary"%></p>
+<%= link_to "New booking", new_service_booking_path(@service), class: "btn btn-primary" %>
 </div>
