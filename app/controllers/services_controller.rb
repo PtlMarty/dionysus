@@ -8,6 +8,7 @@ class ServicesController < ApplicationController
     # GET /services/:id
     @service = Service.find(params[:id])
     @booking = Booking.new
+    @services = Service.all
   end
 
   def new
