@@ -1,13 +1,13 @@
-<div class="container text-center pt-2 mt-2 flex-column justify-content-center col-12">
+<div class="container text-center p-2 m-1 flex-column justify-content-center col-xxl-12">
   <h1 class="fw-bold border-bottom">See all Bookings</h1>
 </div>
 
-<div class="d-flex container-bookings-all p-2 m-2">
+<div class="d-flex container-bookings-all p-2 m-1">
   <div class="container">
     <div class="row">
             <div class="col-xl-6">
             <div class="booking-service-title m-2">
-              <h1>Who I booked</h1>
+              <h2>Who I booked</h2>
             </div>
             <% if @bookings.empty? %>
               <p>No bookings yet</p>
@@ -32,7 +32,7 @@
     <div class="container">
           <div class="col-xl-6">
           <div class="booking-service-title m-2">
-            <h1>Bookings as provider</h1>
+            <h2>Bookings as provider</h2>
           </div>
             <% if @my_bookings_as_provider.empty? %>
               <p>No bookings yet</p>
