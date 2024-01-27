@@ -6,10 +6,14 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
-          <%= f.input :start_date %>
-          <%= f.input :end_date %>
+          <%= f.input :start_date,
+          as: :string,
+          input_html: { data: { controller: "datepicker" } },
+           enableTime: true %>
+          <%= f.input :end_date,
+           as: :string,
+          input_html: { data: { controller: "datepicker" } } %>
           <%= f.input :comment %>
-          <%= f.input :status %>
         </div>
 
         <div class="form-actions">
