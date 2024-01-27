@@ -19,7 +19,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @service = Service.find(params[:service_id])
     @booking.service = @service
-    raise
     if @booking.save
       redirect_to bookings_path
     else
