@@ -24,7 +24,14 @@
                   </p>
                   <p><strong>From:</strong> <%= booking.start_date.strftime("%m-%d %H:%M") %> <i class="fas fa-long-arrow-alt-right"></i> <strong>To:</strong> <%= booking.end_date.strftime("%m-%d %H:%M") %></p>
                   <p class="comment"><%= booking.comment %></p>
-                  <p class="status <%= booking.status %>"><i class="fas fa-check-circle"></i> <%= booking.status.capitalize %></p>
+                <% if booking.status = "pending" %>
+                    <i class="fa-solid fa-hourglass-end"></i>
+                    <% elsif booking.status = "accepted" %>
+                      <i class="fa-solid fa-check"></i>
+                    <% else %>
+                      <i class="fa-solid fa-times w-50"></i>
+                  <% end %>
+
                 </div>
               </div>
             <% end %>
@@ -46,7 +53,15 @@
                   <p class="user-name"><%= booking.user.first_name %> <%= booking.user.last_name %></p>
                   <p><strong>From:</strong> <%= booking.start_date.strftime("%m-%d %H:%M") %> <i class="fas fa-long-arrow-alt-right"></i> <strong>To:</strong> <%= booking.end_date.strftime("%m-%d %H:%M") %></p>
                   <p class="comment"><%= booking.comment %></p>
-                  <p class="status <%= booking.status %>"><i class="fas fa-check-circle"></i> <%= booking.status.capitalize %></p>
+
+                  <% if booking.status = "pending" %>
+                    <i class="fa-solid fa-hourglass-end"></i>
+                    <% elsif booking.status = "accepted" %>
+                      <i class="fa-solid fa-check"></i>
+                    <% else %>
+                      <i class="fa-solid fa-times"></i>
+                  <% end %>
+
                 </div>
               </div>
             <% end %>
