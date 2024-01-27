@@ -1,18 +1,20 @@
-<h1>All ours users services</h1>
 <div style="float:left; width:20% margin:1em">
-  <h4> I have a service to offer! </h4>
-  <hr>
-  <%= render "services/new_form", service: @service %> <%#passing to partial% %>
+  <div class = "container">
+    <h5> Create my service </h5>
+    <hr>
+    <%= render "services/new_form", service: @service %> <%#passing to partial% %>
   </div>
+</div>
 <%# iteration on all service with name, description and price in bootstrap card %>
-    <div class = "container-services">
+<div class = "container">
+  <h5 style="text-align:center"> Services currently listed </h5>
+  <div class = "container-services">
       <% @services.each do |service| %>
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title"><%= service.name %></h5>
             <h6 class="card-subtitle mb-2 text-muted"><%= service.description %></h6>
             <p class="card-text"><%= service.price_hours %></p>
-            <%= link_to "more details", service_path(service) %>
             <img src="https://cdn.pixabay.com/photo/2016/11/24/13/00/white-male-1856175_1280.jpg" alt="sample photo">
             <p class="card-text">JPY <%= service.price_hours %> PER HOUR </p>
             <br>
@@ -21,6 +23,5 @@
           </div>
         </div>
       <% end %>
-    </div>
   </div>
 </div>
