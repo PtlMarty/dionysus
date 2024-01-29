@@ -1,57 +1,72 @@
-<div class="container text-center p-2 m-1 flex-column justify-content-center col-xxl-12">
-  <h1 class="fw-bold border-bottom">See all Bookings</h1>
-</div>
-
-<div class="d-flex container-bookings-all p-2 m-1">
-  <div class="container">
-    <div class="row">
-            <div class="col-xl-6">
-            <div class="booking-service-title m-2">
-              <h2>Who I booked</h2>
-            </div>
-            <% if @bookings.empty? %>
-              <p>No bookings yet</p>
-            <% else %>
-              <% @bookings.each do |booking| %>
-                <div class="card">
-                  <div class="card-body">
-                    <%= booking.user.first_name %>
-                    <%= booking.user.last_name %>
-                    <%= booking.start_date %>
-                    <%= booking.end_date %>
-                    <%= booking.comment %>
-                    <%= booking.status %>
-                  </div>
-                </div>
-              <% end %>
-            <% end %>
-            <%= link_to "new booking",  services_path %>
-            </div>
-        </div>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="text-center py-4">
+        <h1 class="fw-bold">All Bookings</h1>
+      </div>
     </div>
-    <div class="container">
-          <div class="col-xl-6">
-          <div class="booking-service-title m-2">
-            <h2>Bookings as provider</h2>
-          </div>
-            <% if @my_bookings_as_provider.empty? %>
-              <p>No bookings yet</p>
-            <% else %>
-              <% @my_bookings_as_provider.each do |booking| %>
-                <div class="card">
-                  <div class="card-body">
-                    <%= booking.user.first_name %>
-                    <%= booking.user.last_name %>
-                    <%= booking.start_date %>
-                    <%= booking.end_date %>
-                    <%= booking.comment %>
-                    <%= booking.status %>
-                  </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="section-title text-center">Bookings Made</h2>
+      <div class="section">
+        <div class="booking-list">
+          <% if @bookings.empty? %>
+            <p class="no-bookings-msg text-center">No bookings yet</p>
+          <% else %>
+            <% @bookings.each do |booking| %>
+              <div class="card m-3 shadow text-center">
+                <div class="card-body">
+                  <p class="user-name">
+                    <%= booking.service.user.first_name %>
+                    <%= booking.service.user.last_name %>
+                  </p>
+                  <p><strong>From:</strong> <%= booking.start_date.strftime("%m-%d %H:%M") %> <i class="fas fa-long-arrow-alt-right"></i> <strong>To:</strong> <%= booking.end_date.strftime("%m-%d %H:%M") %></p>
+                  <p class="comment"><%= booking.comment %></p>
+                <% if booking.status = "pending" %>
+                    <i class="fa-solid fa-hourglass-end"></i>
+                    <% elsif booking.status = "accepted" %>
+                      <i class="fa-solid fa-check"></i>
+                    <% else %>
+                      <i class="fa-solid fa-times" sty></i>
+                  <% end %>
+
                 </div>
-              <% end %>
+              </div>
             <% end %>
-            <%= link_to "new booking",  services_path %>
-          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="section">
+        <h2 class="section-title text-center">Bookings Received</h2>
+        <div class="booking-list">
+          <% if @my_bookings_as_provider.empty? %>
+            <p class="no-bookings-msg text-center">No bookings yet</p>
+          <% else %>
+            <% @my_bookings_as_provider.each do |booking| %>
+              <div class="card m-3 shadow text-center">
+                <div class="card-body">
+                  <p class="user-name"><%= booking.user.first_name %> <%= booking.user.last_name %></p>
+                  <p><strong>From:</strong> <%= booking.start_date.strftime("%m-%d %H:%M") %> <i class="fas fa-long-arrow-alt-right"></i> <strong>To:</strong> <%= booking.end_date.strftime("%m-%d %H:%M") %></p>
+                  <p class="comment"><%= booking.comment %></p>
+
+                  <% if booking.status = "pending" %>
+                    <i class="fa-solid fa-hourglass-end"></i>
+                    <% elsif booking.status = "accepted" %>
+                      <i class="fa-solid fa-check"></i>
+                    <% else %>
+                      <i class="fa-solid fa-times"></i>
+                  <% end %>
+
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
