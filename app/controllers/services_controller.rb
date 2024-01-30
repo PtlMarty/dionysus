@@ -1,6 +1,15 @@
 class ServicesController < ApplicationController
   def index
     @services = Service.all
+    if params[:query].present?
+      sql_subquery = <<~SQL
+        services.name ILIKE :query
+        OR services.description ILIKE :query
+        OR users.first_name ILIKE :query
+        OR users.last_name ILIKE :query
+      SQL
+      @services = @services.joins(:user).where(sql_subquery, query: "%#{params[:query]}%")
+    end
   end
 
   def show
