@@ -83,3 +83,4 @@ end
 
 gem 'dotenv', groups: [:development, :test]
 gem "cloudinary"
+gem "acts-as-taggable-on", "~> 9.0"
