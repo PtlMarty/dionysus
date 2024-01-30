@@ -16,7 +16,7 @@
             <p class="no-bookings-msg text-center">No bookings yet</p>
           <% else %>
             <% @bookings.each do |booking| %>
-              <div class="card m-3 shadow text-center">
+              <div class="card m-3 shadow text-center card-booking">
                 <div class="card-body">
                   <p class="user-name">
                     <%= booking.service.user.first_name %>
@@ -47,28 +47,31 @@
             <p class="no-bookings-msg text-center">No bookings yet</p>
           <% else %>
             <% @my_bookings_as_provider.each do |booking| %>
-              <div class="booking-info">
+              <div class=" card card-booking booking-info flex-column pt-3">
                 <div class="booking-info-title">
                   <%= booking.service.user.first_name %> <%= booking.service.user.last_name %>
                 </div>
                 <div class="booking-info-details">
                   <p><strong>From:</strong> <%= booking.start_date.strftime("%m-%d %H:%M") %> <i class="fas fa-long-arrow-alt-right"></i> <strong>To:</strong> <%= booking.end_date.strftime("%m-%d %H:%M") %></p>
                 </div>
-                <div class="d-flex">
-                  <%= simple_form_for booking, url: accept_booking_path(booking), method: :patch do |f| %>
-                    <%= f.button :submit, 'Accept', class: 'btn btn-info' %>
-                  <% end %>
-
-                  <%= simple_form_for booking, url: rejected_booking_path(booking), method: :patch do |f| %>
-                    <%= f.button :submit, 'Reject', class: 'btn btn-light' %>
-                  <% end %>
-                <% if booking.status == "pending" %>
-                    <i class="fa-solid fa-hourglass-end"></i>
-                  <% elsif booking.status == "accepted" %>
-                    <i class="fa-solid fa-check"></i>
-                  <% else %>
-                    <i class="fa-solid fa-times"></i>
-                <% end %>
+                <div class="d-flex flex-column text-center">
+                  <div class="d-flex gap-2">
+                    <%= simple_form_for booking, url: accept_booking_path(booking), method: :patch do |f| %>
+                      <%= f.button :submit, 'Accept', class: 'btn btn-info' %>
+                    <% end %>
+                    <%= simple_form_for booking, url: rejected_booking_path(booking), method: :patch do |f| %>
+                      <%= f.button :submit, 'Reject', class: 'btn btn-light' %>
+                    <% end %>
+                  </div>
+                  <div class="mt-2">
+                    <% if booking.status == "pending" %>
+                        <i class="fa-solid fa-hourglass-end"></i>
+                      <% elsif booking.status == "accepted" %>
+                        <i class="fa-solid fa-check" style="color:green; font-size"></i>
+                      <% else %>
+                        <i class="fa-solid fa-times "></i>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             <% end %>
