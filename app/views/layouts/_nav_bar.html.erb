@@ -6,18 +6,6 @@
       <% end %>
       <h4> Dionysus </h4>
     </div>
-    <div class="row justify-content-center">
-      <div class="col-sm-8 my-3">
-        <%= form_with url: services_path, method: :get, class: "d-flex" do %>
-          <%= text_field_tag :query,
-                params[:query],
-                class: "form-control",
-                placeholder: "Type a keyword"
-            %>
-          <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-        <% end %>
-      </div>
-    </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -26,15 +14,22 @@
       <ul class="navbar-nav me-auto">
         <%# if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "My services", services_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "My bookings", bookings_path, class: "nav-link" %>
+              <div class="d-grid gap-1 d-md-block mx-3">
+                <%= form_with url: services_path, method: :get, class: "d-flex" do %>
+                  <%= submit_tag "🔍", name: "", class: "btn" %>
+                  <%= text_field_tag :query,
+                        params[:query],
+                        class: "form-control",
+                        placeholder: "Type a keyword"
+                    %>
+                <% end %>
+              </div>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%# <%= link_to "My profile", "", class: "dropdown-item" %>
+              <%= link_to "My bookings", bookings_path, class: "dropdown-item" %>
+              <%= link_to "My services", services_path, class: "dropdown-item" %>
               <%= link_to "Post a wine experience", new_service_path, class: "dropdown-item" %> <%#added new_form here%>
               <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
