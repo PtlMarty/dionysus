@@ -1,13 +1,19 @@
-<h1>My service</h1>
-
-<p>My profile</p>
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title"><%= @service.name %></h5>
-    <%= cl_image_tag(@service.user.picture, { alt: @service.user.first_name, class: "profile-picture" })%>
-    <h6 class="card-subtitle mb-2 text-muted"><%= @service.description %></h6>
-    <p class="card-text">JYP <%= @service.price_hours %> per hour</p>
-    <%= link_to "all services", services_path %>
+<div class="card-show">
+  <%= image_tag "bottles.jpg" %>
+  <div class="card-show-infos">
+    <div>
+      <h2><%= @service.name %></h2>
+      <p>
+        <i class="fa-solid fa-user"></i> Wine Expert <%= @service.user.first_name %>
+      </p>
+    </div>
+    <h2 class="card-show-pricing"> <%= number_to_currency(@service.price_hours, unit: "¥", separator: ",", delimiter: ",") %>/hr</h2>
+    <%= cl_image_tag(@service.user.picture, { alt: @service.user.first_name, class: "card-show-user avatar-bordered"})%>
   </div>
-<%= link_to "New booking", new_service_booking_path(@service), class: "btn btn-primary" %>
+</div>
+
+<div class="container-center">
+  <p><%= @service.description %></p>
+  <hr>
+  <%= link_to "New booking", new_service_booking_path(@service), class: "btn btn-primary" %>
 </div>
