@@ -1,7 +1,6 @@
 class ServicesController < ApplicationController
   def index
     @services = Service.all
-    @service = Service.new
   end
 
   def show
@@ -12,6 +11,7 @@ class ServicesController < ApplicationController
   end
 
   def new
+    @service = Service.new
   end
 
   def create

@@ -23,7 +23,7 @@
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%# <%= link_to "My profile", "", class: "dropdown-item" %>
-              <%# <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Post a wine experience", new_service_path, class: "dropdown-item" %> <%#added new_form here%>
               <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>

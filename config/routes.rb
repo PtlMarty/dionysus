@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :edit, :update, :destroy] do
-    resources :services, only: [:index, :show], dependant: :destroy
+    resources :services, only: [:new, :index, :show], dependant: :destroy
   end
 end
