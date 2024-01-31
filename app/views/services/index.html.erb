@@ -13,6 +13,7 @@
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title"><%= service.user.first_name %> <%= service.user.last_name %></h5>
+            <h6 class="service-name"><%= service.name %></h6>
             <hr style="border-top: dotted 1px;">
             <img src= "<%= service.user.picture %>" alt="user's photo">
             <p class="card-text"><%= number_to_currency(service.price_hours, unit: "¥", separator: ",", delimiter: ",") %>/hr </p>
