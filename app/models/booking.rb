@@ -6,5 +6,4 @@ class Booking < ApplicationRecord
   validates :comment, presence: true
   validates :status, presence: true
   enum status: { pending: 0, accepted: 1, rejected: 2}, _default: :pending
-
 end
