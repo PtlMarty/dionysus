@@ -1,9 +1,11 @@
 .card-booking {
-  height: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
-  font-weight: bold;
   border-radius: 5px;
+}
+
+.user-name {
+  font-weight: bold;
+  font-size: 46px;
 }
