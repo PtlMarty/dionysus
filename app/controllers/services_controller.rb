@@ -23,9 +23,9 @@ class ServicesController < ApplicationController
     @service = Service.new
   end
 
-  def tag_index
-    @services = Service.tagged_with(service_params[:tag_list], :any => true)
-  end
+  # def tag_index
+  #   @services = Service.tagged_with(service_params[:tag_list], :any => true)
+  # end
 
   def create
     @services = Service.all

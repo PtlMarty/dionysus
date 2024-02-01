@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100px;
+  height: 70px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
 }
@@ -27,4 +27,11 @@
 }
 .footer .fa-heart {
   color: #D23333;
+}
+
+@media screen and (max-width: 500px) {
+  .container-services {
+    flex-direction: column; /* Change to column layout on small screens */
+    align-items: center; /* Center items in the column */
+  }
 }
