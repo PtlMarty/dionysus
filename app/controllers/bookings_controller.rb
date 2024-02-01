@@ -30,17 +30,22 @@ class BookingsController < ApplicationController
 # accept or reject the booking by clicking on a button
   def accept
     @booking = Booking.find(params[:id])
-    @booking.status = "accepted"
-    @booking.save
-    redirect_to bookings_path
+    if @booking.update(status: 'accepted')
+      redirect_to @booking, notice: 'Booking was accepted.'
+    else
+      render :show, alert: 'Failed to accept booking.'
+    end
   end
 
-  def decline
+  def rejected
     @booking = Booking.find(params[:id])
-    @booking.status = "rejected"
-    @booking.save
-    redirect_to bookings_path
+    if @booking.update(status: 'rejected')
+      redirect_to @booking, notice: 'Booking was rejected.'
+    else
+      render :show, alert: 'Failed to reject booking.'
+    end
   end
+
   private
 
   def booking_params

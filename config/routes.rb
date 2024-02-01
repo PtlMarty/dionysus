@@ -5,10 +5,10 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings, only: [:index, :show, :destroy] do
+  resources :bookings, only: [:index, :show, :update, :destroy] do
     member do
       patch :accept
-      patch :decline
+      patch :rejected
     end
   end
 
