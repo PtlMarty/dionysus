@@ -6,6 +6,7 @@
     <%= f.input :name, label: 'Wine Experience Name', placeholder: ' E.g. - Private Wine Tasting'  %>
     <%= f.input :description, label: 'Description', placeholder: ' E.g. - Indulge your senses at our exclusive wine tasting event! Join us for an evening of exquisite flavors and sophisticated blends as you explore a curated selection of fine wines from around the world.' %>
     <%= f.input :price_hours, label: 'Price per hour (¥)' %>
+    <%= f.input :tag_list, label: 'Wine Color', as: :check_boxes, collection: ["Red", "White"] %>
     <%# <%= f.input :image we need this in the future? %>
     <%= f.submit 'Post', class: "btn btn-secondary" %>
   <% end %>

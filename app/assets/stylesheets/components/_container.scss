@@ -28,7 +28,7 @@
   display: block;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (min-width: 500px) and (max-width: 1000px)  {
   .container-services {
     flex-direction: column; /* Change to column layout on small screens */
     align-items: center; /* Center items in the column */
