@@ -52,11 +52,10 @@ events = [
   {name: "Japanese Wine Wonderland", description: "Journey through Japan's burgeoning wine scene with a sommelier as your guide, sampling a diverse selection of wines from Hokkaido to Okinawa, each reflecting the unique terroir and craftsmanship of its region."},
 ]
 
-selected_event = events.sample
-
 10.times do |i|
-Service.create!(
-  # Name, prices, description
+selected_event = events.sample
+  Service.create!(
+    # Name, prices, description
   name: selected_event[:name],
   price_hours: Faker::Number.between(from: 2000, to: 30_000),
   description: selected_event[:description],
