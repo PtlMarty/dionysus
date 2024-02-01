@@ -31,7 +31,7 @@
               <%= link_to "My bookings", bookings_path, class: "dropdown-item" %>
               <%= link_to "My services", services_path, class: "dropdown-item" %>
               <%= link_to "Post a wine experience", new_service_path, class: "dropdown-item" %> <%#added new_form here%>
-              <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
         <%# else %>
