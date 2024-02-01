@@ -21,3 +21,11 @@
   </div>
   <%= link_to "New booking", new_service_booking_path(@service), class: "btn btn-primary" %>
 </div>
+
+<div style="float:right; width:20% margin:1em">
+  <div class = "container">
+    <h5> Your next wine experience</h5>
+    <hr>
+    <%= render "bookings/new_form", service: [@service, @booking] %> <%#passing to partial% %>
+  </div>
+</div>
