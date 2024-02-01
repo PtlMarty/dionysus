@@ -28,3 +28,10 @@
 .footer .fa-heart {
   color: #D23333;
 }
+
+@media screen and (max-width: 500px) {
+  .container-services {
+    flex-direction: column; /* Change to column layout on small screens */
+    align-items: center; /* Center items in the column */
+  }
+}

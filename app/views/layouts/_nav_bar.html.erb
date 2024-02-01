@@ -1,10 +1,10 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-dionysus">
   <div class="container-fluid">
-    <div class= "container-logo">
+    <div class= "logo d-flex align-items-center p-0">
       <%= link_to "/", class: "navbar-brand" do %>
         <%= image_tag "logo.png" %>
       <% end %>
-      <h4> Dionysus </h4>
+      <h4 class="inline-container justify-content-center p-0 mb-0"> Dionysus </h4>
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -31,7 +31,7 @@
               <%= link_to "My bookings", bookings_path, class: "dropdown-item" %>
               <%= link_to "My services", services_path, class: "dropdown-item" %>
               <%= link_to "Post a wine experience", new_service_path, class: "dropdown-item" %> <%#added new_form here%>
-              <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
         <%# else %>
