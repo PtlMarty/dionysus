@@ -14,7 +14,7 @@
           <div class="card-body">
             <h5 class="card-title"><%= service.user.first_name %> <%= service.user.last_name %></h5>
             <hr style="border-top: dotted 1px;">
-            <img src= "<%= service.user.picture %>" alt="user's photo">
+            <%= cl_image_tag(service.user.picture.key, alt: "user's photo", width: 300, height: 300, crop: :fill) %>
             <p class="card-text"><%= number_to_currency(service.price_hours, unit: "¥", separator: ",", delimiter: ",") %>/hr </p>
             <h6 class="card-subtitle mb-2 text-muted"><%= service.description %></h6>
             <%= link_to "details", service_path(service), class: "btn btn-primary", method: :get %>
