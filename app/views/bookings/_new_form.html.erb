@@ -5,7 +5,7 @@
       <%= simple_form_for([@service, @booking]) do |f| %>
         <%= f.error_notification %>
 
-        <div class="form-inputs">
+        <div class="form-inputs" style="align-items: center">
           <%= f.input :start_date,
           as: :string,
           input_html: { data: { controller: "datepicker" } },
