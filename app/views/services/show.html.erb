@@ -7,7 +7,7 @@
         <i class="fa-solid fa-user"></i> Wine Expert <%= @service.user.first_name %>
       </p>
     </div>
-    <h2 class="card-show-pricing"> <%= number_to_currency(@service.price_hours, unit: "¥", separator: ",", delimiter: ",") %>/hr</h2>
+    <h2 class="card-show-pricing"> <%= number_to_currency(@service.price_hours, unit: "¥", separator: ".", delimiter: ",", precision: 0, round_mode: :up) %>/hr</h2>
     <%= cl_image_tag(@service.user.picture, { alt: @service.user.first_name, class: "card-show-user avatar-bordered"})%>
   </div>
 </div>
