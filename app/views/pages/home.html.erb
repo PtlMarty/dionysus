@@ -1,8 +1,22 @@
-    <div class="banner-container mt-3 img-fluid">
-      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('banner_img.jpeg') %>);">
-        <div class="container">
-          <h1>Your unique wine experience from Passionates to Passionates</h1>
-          <p>Discover the Pleasure of Experiencing Good Wine Tasting</p>
-          <%= link_to "All Services", services_path, class: "btn btn-primary" %>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Dionysus</title>
+      <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    <script src="index.js"></script>
+      <div class="banner-image mt-0 p-0 position-relative">
+          <div class="banner img-fluid" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('banner_img.jpeg') %>);">
+            <div class="container">
+              <h1>Your unique wine experience from Passionates to Passionates</h1>
+              <p>Discover the Pleasure of Experiencing Good Wine Tasting</p>
+              <%= link_to "All Services", services_path, class: "btn btn-primary" %>
+            </div>
+          </div>
       </div>
+    </body>
+</html>
