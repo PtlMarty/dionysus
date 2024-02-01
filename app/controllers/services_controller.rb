@@ -23,21 +23,28 @@ class ServicesController < ApplicationController
     @service = Service.new
   end
 
+  # def tag_index
+  #   @services = Service.tagged_with(service_params[:tag_list], :any => true)
+  # end
+
   def create
     @services = Service.all
     @service = Service.new(service_params)
+      params[:service][:tag_list].each do |tag|
+        @service.tag_list.add(tag) unless tag.empty?
+      end
     if @service.save
 
-      redirect_to services_path
+      redirect_to service_path(@service)
     else
-      raise
       render :index, status: :unprocessable_entity
     end
   end
 
+
   private
 
   def service_params
-    params.require(:service).permit(:name, :description, :price_hours).merge(user_id: current_user.id)
+    params.require(:service).permit(:name, :description, :price_hours, :tag_list).merge(user_id: current_user.id)
   end
 end

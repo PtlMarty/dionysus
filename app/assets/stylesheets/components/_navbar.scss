@@ -1,5 +1,5 @@
 .navbar-dionysus {
-  justify-content: space-between;
+  justify-content: center;
   background: white;
 }
 
@@ -8,5 +8,10 @@
 }
 
 .navbar-dionysus .navbar-brand img {
-  width: 40px;
+  width: 50px;
+}
+
+a.navbar-brand {
+  margin: 0px;
+  align-content: center;
 }

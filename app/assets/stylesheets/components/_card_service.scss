@@ -43,6 +43,11 @@
   filter: grayscale(100%);
 }
 
+.card-body .card-tag {
+  display: inline-block;
+  margin: 0.2em;
+}
+
 .card-body button {
   display: inline-block;
 }
