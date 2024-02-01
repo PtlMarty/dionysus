@@ -34,7 +34,6 @@ class ServicesController < ApplicationController
 
       redirect_to services_path
     else
-      raise
       render :index, status: :unprocessable_entity
     end
   end
