@@ -1,8 +1,9 @@
 .card {
   padding: 16px;
   border-radius: 20px;
+  border-color: #FFF8CE;
   margin: 0.2em;
-  background-color: $white;
+  background-color: #FFF8CE;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -10,9 +11,10 @@
   min-width: 400px;
 }
 
-.card-body {
+.card .card-body {
+  padding: 12px 6px;
   text-align: center;
-  margin: 1em;
+  margin: auto;
 }
 
 .card-title {
@@ -22,20 +24,22 @@
 }
 
 .card-subtitle {
+  font-size: 14px;
   color: gray;
 }
 
 .card-body p {
-  font-size: 16px;
+  font-size: 14px;
   font-style: italic;
 }
 
 .card-body h6 {
   height: 3em;
-  overflow: scroll;
+  // overflow: scroll;
 }
 
 .card-body img {
+  border-color: #335C67;
   height: 150px;
   width: 150px;
   padding: 16px;
@@ -44,14 +48,14 @@
 }
 
 .card-body .card-tag {
-  display: inline-block;
   margin: 0.2em;
+  align-items: center;
 }
 
-.card-body button {
-  display: inline-block;
-}
+// .card-body btn {
+//   display: inline-block;
+// }
 
 .btn-primary {
-  margin-bottom: 16px
+  margin-bottom: 6px
 }
