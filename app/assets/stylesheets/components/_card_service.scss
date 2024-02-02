@@ -3,8 +3,17 @@
   border-radius: 20px;
   border-color: #FFF8CE;
   margin: 0.2em;
-  background-color: #FFF8CE;
+  background-color: #fff7cc;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  &:hover {
+    background-color: #fff1a1;
+    transition: background-color 0.5s;
+      background-image: url("logo.png");
+}
+}
+
+.card:hover {
+  background-color: #fff1a1;
 }
 
 .card-service {
@@ -39,12 +48,19 @@
 }
 
 .card-body img {
-  border-color: #335C67;
   height: 150px;
   width: 150px;
   padding: 16px;
   border-radius: 50%;
   filter: grayscale(100%);
+  &:hover {
+    filter: grayscale(0%);
+    transition: filter 0.5s;
+  }
+}
+
+.card:hover .card-body img {
+  filter: grayscale(0%);
 }
 
 .card-body .card-tag {
@@ -56,6 +72,10 @@
 //   display: inline-block;
 // }
 
-.btn-primary {
-  margin-bottom: 6px
+.btn {
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn btn-primary {
+  margin-bottom: 6px;
 }
