@@ -1,3 +1,7 @@
+.container {
+  margin-top: 60px;
+  }
+
 .card {
   padding: 16px;
   border-radius: 20px;
@@ -72,10 +76,7 @@
 //   display: inline-block;
 // }
 
-.btn {
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
 .btn btn-primary {
   margin-bottom: 6px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
