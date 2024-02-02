@@ -2,22 +2,32 @@
   margin-top: 60px;
   }
 
+  @keyframes vibrate {
+    // 0% { transform: translate(0, 0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-2px, 2px); }
+    // 80% { transform: translate(2px, -2px); }
+    // 100% { transform: translate(0, 0); }
+  }
+
 .card {
   padding: 16px;
   border-radius: 20px;
   border-color: #FFF8CE;
   margin: 0.2em;
-  background-color: #fff7cc;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #f9f5d7;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 12px 0 rgba(0, 0, 0, 0.19);
   &:hover {
     background-color: #fff1a1;
     transition: background-color 0.5s;
-      background-image: url("logo.png");
-}
+    // background-image: url("logo.png");
+  }
 }
 
 .card:hover {
   background-color: #fff1a1;
+  animation: vibrate 0.2s ease 0.3s;
 }
 
 .card-service {
@@ -31,7 +41,8 @@
 }
 
 .card-title {
-  font-size: 18px;
+  font-size: 20px;
+  text-transform: uppercase;
   color: #540B0E;
   font-weight: bolder;
 }
