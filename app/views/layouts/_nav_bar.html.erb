@@ -9,35 +9,40 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <%# if user_signed_in? %>
-          <li class="nav-item active">
-              <div class="d-grid gap-1 d-md-block mx-3">
-                <%= form_with url: services_path, method: :get, class: "d-flex" do %>
-                  <%= submit_tag "🔍", name: "", class: "btn" %>
-                  <%= text_field_tag :query,
+        <li class="nav-item active">
+          <div class="d-grid gap-1 d-md-block mx-3">
+            <%= form_with url: services_path, method: :get, class: "d-flex" do %>
+              <%= submit_tag "🔍", name: "", class: "btn" %>
+              <%= text_field_tag :query,
                         params[:query],
                         class: "form-control",
                         placeholder: "Type a keyword"
                     %>
-                <% end %>
-              </div>
-          </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My bookings", bookings_path, class: "dropdown-item" %>
-              <%= link_to "My services", services_path(mine: true), class: "dropdown-item" %> <%# path goes to the params :mine in index%>
-              <%= link_to "Post a wine experience", new_service_path, class: "dropdown-item" %> <%#added new_form here%>
-              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-            </div>
-          </li>
+            <% end %>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <% path =  user_signed_in? ? current_user.avatar_picture : "https://avatars.githubusercontent.com/u/77490521?v=4" %>
+          <%= image_tag(path,
+            class: "avatar dropdown-toggle",
+            id: "navbarDropdown",
+            data: { bs_toggle: "dropdown" },
+            'aria-haspopup': true,
+            'aria-expanded': false) %>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <%= link_to "My bookings", bookings_path, class: "dropdown-item" %>
+            <%= link_to "My services", services_path(mine: true), class: "dropdown-item" %> <%# path goes to the params :mine in index%>
+            <%= link_to "Post a wine experience", new_service_path, class: "dropdown-item" %> <%#added new_form here%>
+            <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+          </div>
+        </li>
         <%# else %>
-          <!--li class="nav-item"-->
-            <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <!--/li-->
+        <!--li class="nav-item"-->
+        <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
+        <!--/li-->
         <%# end %>
       </ul>
     </div>

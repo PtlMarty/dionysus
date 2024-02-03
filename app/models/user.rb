@@ -10,4 +10,12 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true
   has_one_attached :photo
+
+  def avatar_picture
+    if photo.attached?
+      photo
+    else
+      "https://avatars.githubusercontent.com/u/77490521?v=4"
+    end
+  end
 end

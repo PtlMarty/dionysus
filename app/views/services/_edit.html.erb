@@ -1,0 +1,6 @@
+<%= simple_form_for @service do |f| %>
+  <%= f.input :name, placeholder: "service.name"%>
+  <%= f.input :description, placeholder: "service.description"%>
+  <%= f.input :price_hours, placeholder: "service.price_hours" %>
+  <%= f.button :submit, class:"btn btn-primary"%>
+<% end %>

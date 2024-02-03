@@ -6,99 +6,97 @@
       </div>
     </div>
   </div>
-
   <div class="row">
     <div class="col-md-6">
-        <h3 class="section-title text-center m-3">Bookings Made</h3>
-        <div class="section">
-            <div class="booking-list">
-                <% if @bookings.empty? %>
-                <p class="no-bookings-msg text-center">No bookings yet</p>
-                <% else %>
-                <% @bookings.each do |booking| %>
-                <div class="card card-booking-left booking-info flex-column pt-3 m-3">
-                    <div class="card-body">
-                        <h4 class="user-name">
-                            <%= booking.service.user.first_name %>
-                            <%= booking.service.user.last_name %>
-                        </h4>
-                        <div class="booking-info-details">
-                            <p>
-                                <strong>From:</strong>
-                                <%= booking.start_date.strftime("%m-%d %H:%M") %>
-                                <i class="fas fa-long-arrow-alt-right"></i>
-                                <strong>To:</strong>
-                                <%= booking.end_date.strftime("%m-%d %H:%M") %>
-                            </p>
-                            <p class="comment"><%= booking.comment %></p>
-                        </div>
-                        <div class="mt-2">
-                            <% if booking.status == "pending" %>
-                            <i class="fa-solid fa-hourglass-end mt-5" style="color:#9E2A2B; font-size: 32px"></i>
-                            <% elsif booking.status == "accepted" %>
-                            <i class="fa-solid fa-check" style="color:green; font-size: 36px"></i>
-                            <% else %>
-                            <i class="fa-solid fa-times" style="color:red; font-size: 36px"></i>
-                            <% end %>
-                        </div>
-                    </div>
+      <h3 class="section-title text-center m-3">Bookings Made</h3>
+      <div class="section">
+        <div class="booking-list">
+          <% if @bookings.empty? %>
+            <p class="no-bookings-msg text-center">No bookings yet</p>
+          <% else %>
+            <% @bookings.each do |booking| %>
+              <div class="card card-booking-left booking-info flex-column pt-3 m-3">
+                <div class="card-body">
+                  <h4 class="user-name">
+                    <%= booking.service.user.first_name %>
+                    <%= booking.service.user.last_name %>
+                  </h4>
+                  <div class="booking-info-details">
+                    <p>
+                      <strong>From:</strong>
+                      <%= booking.start_date.strftime("%m-%d %H:%M") %>
+                      <i class="fas fa-long-arrow-alt-right"></i>
+                      <strong>To:</strong>
+                      <%= booking.end_date.strftime("%m-%d %H:%M") %>
+                    </p>
+                    <p class="comment"><%= booking.comment %></p>
+                  </div>
+                  <div class="mt-2">
+                    <% if booking.status == "pending" %>
+                      <i class="fa-solid fa-hourglass-end mt-5" style="color:#9E2A2B; font-size: 32px"></i>
+                    <% elsif booking.status == "accepted" %>
+                      <i class="fa-solid fa-check" style="color:green; font-size: 36px"></i>
+                    <% else %>
+                      <i class="fa-solid fa-times" style="color:red; font-size: 36px"></i>
+                    <% end %>
+                  </div>
                 </div>
-                <% end %>
-                <% end %>
-            </div>
+              </div>
+            <% end %>
+          <% end %>
         </div>
+      </div>
     </div>
-
     <div class="col-md-6">
-        <div class="section">
-            <h3 class="section-title text-center m-3">Bookings Received</h3>
-            <div class="booking-list">
-                <% if @my_bookings_as_provider.empty? %>
-                <p class="no-bookings-msg text-center">No bookings yet</p>
-                <% else %>
-                <% @my_bookings_as_provider.each do |booking| %>
-                <div class="card card-booking-right booking-info flex-column pt-3 m-3 <%= booking.end_date < Time.now ? 'expired' : '' %>">
-                    <div class="booking-info-title">
-                        <h4 class="user-name">
-                            <%= booking.service.user.first_name %> <%= booking.service.user.last_name %>
-                        </h4>
-                    </div>
-                    <div class="booking-info-details text-center">
-                        <p><strong>From:</strong> <%= booking.start_date.strftime("%m-%d %H:%M") %> <i class="fas fa-long-arrow-alt-right"></i> <strong>To:</strong> <%= booking.end_date.strftime("%m-%d %H:%M") %></p>
-                        <p class="comment"><%= booking.comment %></p>
-                    </div>
-                    <div class="d-flex flex-column text-center">
-                        <div class="d-flex gap-2">
-                            <% if booking.end_date >= Time.now && !booking.rejected? %>
-                            <%= simple_form_for booking, url: accept_booking_path(booking), method: :patch do |f| %>
-                            <%= f.button :submit, 'Accept', class: 'btn btn-success' %>
-                            <% end %>
-                            <%= simple_form_for booking, url: rejected_booking_path(booking), method: :patch do |f| %>
-                            <%= f.button :submit, 'Reject', class: 'btn btn-light' %>
-                            <% end %>
-                            <% else %>
-                            <%= simple_form_for booking, url: accept_booking_path(booking), method: :patch do |f| %>
-                            <%= f.button :submit, 'Accept', class: 'btn btn-success', disabled: true, style: 'opacity: 0.5;' %>
-                            <% end %>
-                            <%= simple_form_for booking, url: rejected_booking_path(booking), method: :patch do |f| %>
-                            <%= f.button :submit, 'Reject', class: 'btn btn-light', disabled: true, style: 'opacity: 0.5;' %>
-                            <% end %>
-                            <% end %>
-                        </div>
-                        <div class="mt-2">
-                            <% if booking.status == "pending" %>
-                            <i class="fa-solid fa-hourglass-end" style="color:#9E2A2B; font-size: 32px"></i>
-                            <% elsif booking.status == "accepted" %>
-                            <i class="fa-solid fa-check" style="color:green; font-size: 36px"></i>
-                            <% else %>
-                            <i class="fa-solid fa-times" style="color:red; font-size: 36px"></i>
-                            <% end %>
-                        </div>
-                    </div>
+      <div class="section">
+        <h3 class="section-title text-center m-3">Bookings Received</h3>
+        <div class="booking-list">
+          <% if @my_bookings_as_provider.empty? %>
+            <p class="no-bookings-msg text-center">No bookings yet</p>
+          <% else %>
+            <% @my_bookings_as_provider.each do |booking| %>
+              <div class="card card-booking-right booking-info flex-column pt-3 m-3 <%= booking.end_date < Time.now ? 'expired' : '' %>">
+                <div class="booking-info-title">
+                  <h4 class="user-name">
+                    <%= booking.service.user.first_name %> <%= booking.service.user.last_name %>
+                  </h4>
                 </div>
-                <% end %>
-                <% end %>
-            </div>
+                <div class="booking-info-details text-center">
+                  <p><strong>From:</strong> <%= booking.start_date.strftime("%m-%d %H:%M") %> <i class="fas fa-long-arrow-alt-right"></i> <strong>To:</strong> <%= booking.end_date.strftime("%m-%d %H:%M") %></p>
+                  <p class="comment"><%= booking.comment %></p>
+                </div>
+                <div class="d-flex flex-column text-center">
+                  <div class="d-flex gap-2">
+                    <% if booking.end_date >= Time.now && !booking.rejected? %>
+                      <%= simple_form_for booking, url: accept_booking_path(booking), method: :patch do |f| %>
+                        <%= f.button :submit, 'Accept', class: 'btn btn-success' %>
+                      <% end %>
+                      <%= simple_form_for booking, url: rejected_booking_path(booking), method: :patch do |f| %>
+                        <%= f.button :submit, 'Reject', class: 'btn btn-light' %>
+                      <% end %>
+                    <% else %>
+                      <%= simple_form_for booking, url: accept_booking_path(booking), method: :patch do |f| %>
+                        <%= f.button :submit, 'Accept', class: 'btn btn-success', disabled: true, style: 'opacity: 0.5;' %>
+                      <% end %>
+                      <%= simple_form_for booking, url: rejected_booking_path(booking), method: :patch do |f| %>
+                        <%= f.button :submit, 'Reject', class: 'btn btn-light', disabled: true, style: 'opacity: 0.5;' %>
+                      <% end %>
+                    <% end %>
+                  </div>
+                  <div class="mt-2">
+                    <% if booking.status == "pending" %>
+                      <i class="fa-solid fa-hourglass-end" style="color:#9E2A2B; font-size: 32px"></i>
+                    <% elsif booking.status == "accepted" %>
+                      <i class="fa-solid fa-check" style="color:green; font-size: 36px"></i>
+                    <% else %>
+                      <i class="fa-solid fa-times" style="color:red; font-size: 36px"></i>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
         </div>
+      </div>
     </div>
-</div>
+  </div>
