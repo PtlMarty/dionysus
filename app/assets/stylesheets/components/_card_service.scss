@@ -59,7 +59,12 @@
 
 .card-body h6 {
   height: 3em;
+<<<<<<< HEAD
   // overflow: scroll;
+=======
+  overflow: hidden;
+  text-overflow: ellipsis;
+>>>>>>> master
 }
 
 .card-body img {
