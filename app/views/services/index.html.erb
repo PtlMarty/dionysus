@@ -1,6 +1,6 @@
 <%# iteration on all service with name, description and price in bootstrap card %>
 <div class = "container">
-  <h5 style="text-align:center"> Services currently listed </h5>
+  <h2 style="text-align:center">Our Listings</h2>
   <div class = "container-services">
       <% @services.each do |service| %>
         <div class="card" style="width: 18rem;">
@@ -11,10 +11,12 @@
             <%= cl_image_tag(service.user.picture, alt: "user's photo", width: 300, height: 300, crop: :fill) %>
             <p class="card-text"><%= number_to_currency(service.price_hours, unit: "¥", separator: ".", delimiter: ",", precision: 0, round_mode: :up) %>/hr </p>
             <h6 class="card-subtitle mb-2 text-muted"><%= service.description %></h6>
-            <span class="card-tag"><% service.tag_list.each do |tag| %>
-            <%= tag %>
-            <% end %>
-            </span>
+            <div class="card-tag">
+              <span><% service.tag_list.each do |tag| %>
+                <%= tag.capitalize %>
+              <% end %>
+              </span>
+            </div>
             <%= link_to "details", service_path(service), class: "btn btn-primary", method: :get %>
           </div>
         </div>
