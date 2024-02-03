@@ -5,7 +5,7 @@
       <div>
         <h2><%= @service.name %></h2>
         <p>
-          <i class="fa-solid fa-user"></i> Wine Expert <%= @service.user.first_name %>
+          <i class="fa-solid fa-user"></i> Wine Expert <%= @service.user.first_name %> <%= @service.user.last_name %>
         </p>
       </div>
       <h2 class="card-show-pricing"> <%= number_to_currency(@service.price_hours, unit: "¥", separator: ".", delimiter: ",", precision: 0, round_mode: :up) %>/hr</h2>

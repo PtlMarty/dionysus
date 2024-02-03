@@ -8,15 +8,15 @@
           <%= f.input :start_date,
           as: :string,
           input_html: { data: { controller: "datepicker" } },
-            enableTime: true, label: false, placeholder: 'Start date'%>
+            enableTime: true, label: false, placeholder: 'Start date', class: "form_border"%>
           <%= f.input :end_date,
             as: :string,
-          input_html: { data: { controller: "datepicker" } }, label: false, placeholder: 'End date' %>
+          input_html: { data: { controller: "datepicker" } }, label: false, placeholder: 'End date', class: "form-border" %>
+          <div class="form-actions">
+            <%= f.button :submit, class: 'btn-primary', value: 'Reserve' %>
+          </div>
         </div>
       <%= f.input :comment, label: false, placeholder: 'Comment' %>
-      </div>
-      <div class="form-actions">
-        <%= f.button :submit, class: 'btn-primary', value: 'Reserve' %>
       </div>
     </div>
     <% end %>
