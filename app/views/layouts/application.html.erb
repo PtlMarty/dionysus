@@ -12,11 +12,19 @@
   </head>
 
   <body>
-    <div>
-      <%= render "layouts/nav_bar" %>
+    <div class="wrapper">
+        <div class="content">
+            <!-- Your main content here -->
+          <div>
+            <%= render "layouts/nav_bar" %>
+          </div>
+          <%= yield %>
+        </div>
+        <footer class="footer">
+            <!-- Footer content here -->
+          <%= render 'layouts/footer' %>
+        </footer>
     </div>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   </body>
