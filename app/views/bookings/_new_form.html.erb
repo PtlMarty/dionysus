@@ -1,7 +1,7 @@
 <%# simple form for a new booking %>
 <div class="container">
-  <div class="row">
-    <div class="col-6">
+  <%# <div class="row"> %>
+    <div class="col">
       <%= simple_form_for([@service, @booking]) do |f| %>
         <%= f.error_notification %>
         <div class="form-inputs">
@@ -14,11 +14,10 @@
           input_html: { data: { controller: "datepicker" } } %>
           <%= f.input :comment %>
         </div>
-
         <div class="form-actions">
           <%= f.button :submit %>
         </div>
       <% end %>
-    </div>
+    <%# </div> %>
   </div>
 </div>
