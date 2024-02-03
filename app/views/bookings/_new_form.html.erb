@@ -1,23 +1,23 @@
 <%# simple form for a new booking %>
-<div class="container">
-  <%# <div class="row"> %>
-    <div class="col">
-      <%= simple_form_for([@service, @booking]) do |f| %>
-        <%= f.error_notification %>
-        <div class="form-inputs">
+<div>
+  <div class="col">
+    <%= simple_form_for([@service, @booking]) do |f| %>
+      <%= f.error_notification %>
+      <div class="form-inputs">
+        <div class="form">
           <%= f.input :start_date,
           as: :string,
           input_html: { data: { controller: "datepicker" } },
-           enableTime: true %>
+            enableTime: true %>
           <%= f.input :end_date,
-           as: :string,
+            as: :string,
           input_html: { data: { controller: "datepicker" } } %>
-          <%= f.input :comment %>
         </div>
-        <div class="form-actions">
-          <%= f.button :submit %>
-        </div>
-      <% end %>
-    <%# </div> %>
+        <%= f.input :comment %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+    <% end %>
   </div>
 </div>
