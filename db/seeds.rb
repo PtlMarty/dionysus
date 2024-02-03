@@ -13,6 +13,7 @@ User.create(
     last_name: "Portal",
     email: "mail@mail.com",
     password: "secret",
+    picture: "https://avatars.githubusercontent.com/u/77490521?v=4",
     password_confirmation: "secret",
   )
 puts "done"
