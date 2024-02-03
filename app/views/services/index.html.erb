@@ -6,6 +6,7 @@
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title"><%= service.user.first_name %> <%= service.user.last_name %></h5>
+            <p><%= service.name %></p>
             <hr style="border-top: dotted 1px;">
             <img src= "<%= service.user.picture %>" alt="user's photo" width="300" height="300" style="border-radius: 50%;">
             <%# <%= cl_image_tag(service.user.picture, alt: "user's photo", width: 300, height: 300, crop: :fill) %>
