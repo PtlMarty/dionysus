@@ -56,7 +56,7 @@ class ServicesController < ApplicationController
     @services = Service.all
     @service = Service.find(params[:id])
     if @service.update(service_params)
-      redirect_to services_path
+      redirect_to services_path(mine: true)
     else
       render :edit, status: :unprocessable_entity
     end

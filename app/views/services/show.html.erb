@@ -12,7 +12,6 @@
       <%= cl_image_tag(@service.user.picture, { alt: @service.user.first_name, class: "card-show-user avatar-bordered"})%>
     </div>
   </div>
-
   <div class="container-center">
     <p><%= @service.description %></p>
     <div class="service-tag">
@@ -25,16 +24,13 @@
   <div class = "container">
     <h5> Your next wine experience</h5>
     <hr>
-
     <% if current_user == @service.user %>
       <%= render 'edit' %>
-      <% else %>
+    <% else %>
       <%= render "bookings/new_form", service: [@service, @booking] %> <%#passing to partial% %>
     <% end %>
-
   </div>
 </div>
-
 <div style="float:right; width:20% margin:1em">
   <div class = "container">
     <h5> Your next wine experience</h5>
