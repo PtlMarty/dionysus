@@ -8,12 +8,12 @@ User.destroy_all
 
 
 puts "Creating Martin..."
-User.create(
+User.create!(
     first_name: "Martin",
     last_name: "Portal",
     email: "mail@mail.com",
     password: "secret",
-    picture: "https://avatars.githubusercontent.com/u/77490521?v=4",
+    picture: "https://kitt.lewagon.com/placeholder/users/PtlMarty",
   )
 puts "done"
 
