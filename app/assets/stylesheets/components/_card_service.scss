@@ -13,10 +13,6 @@
 }
 
 
-.card-service {
-  min-width: 400px;
-}
-
 .card-profile .card-body {
   padding: 12px 6px;
   text-align: center;
@@ -30,23 +26,19 @@
   font-weight: bolder;
 }
 
-.card-subtitle {
-  font-size: 14px;
-  color: gray;
-  // white-space: nowrap;
-  // overflow: hidden;
-  text-overflow: ellipsis
-}
-
 .card-body p {
   font-size: 14px;
   font-style: italic;
 }
 
-.card-body h6 {
-  height: 3em;
-  overflow: hidden;
+.card-subtitle {
+
+  display: -webkit-box;
   text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+
 }
 
 .card-body img {
