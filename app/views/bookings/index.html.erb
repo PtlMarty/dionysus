@@ -49,7 +49,7 @@
             <% @my_bookings_as_provider.each do |booking| %>
               <div class=" card card-booking booking-info flex-column pt-3">
                 <div class="booking-info-title">
-                  <%= booking.service.user.first_name %> <%= booking.service.user.last_name %>
+                  <%= booking.service.user.first_name %> <%= booking.service.user.last_name %> <%= booking.service.id %>
                 </div>
                 <div class="booking-info-details">
                   <p><strong>From:</strong> <%= booking.start_date.strftime("%m-%d %H:%M") %> <i class="fas fa-long-arrow-alt-right"></i> <strong>To:</strong> <%= booking.end_date.strftime("%m-%d %H:%M") %></p>

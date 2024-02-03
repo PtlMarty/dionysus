@@ -13,6 +13,7 @@ User.create(
     last_name: "Portal",
     email: "mail@mail.com",
     password: "secret",
+    picture: "https://avatars.githubusercontent.com/u/77490521?v=4",
     password_confirmation: "secret",
   )
 puts "done"
@@ -38,12 +39,27 @@ end
 puts "done"
 
 puts "Creating services..."
+
+events = [
+  {name: "Sake Sips in Yokohama", description: "Savor traditional sake varieties while soaking in Yokohama's stunning bay views, guided by local experts sharing the history and craftsmanship behind each brew."},
+  {name: "Tokyo Terroir Discovery", description: "Delve into Tokyo's diverse terroir with a tasting led by a sommelier, featuring unique wines that reflect the city's distinct microclimates and soil compositions."},
+  {name: "Bold Bordeaux Experience", description: "Experience the boldness of Bordeaux with a tasting led by a sommelier, featuring classic blends and single-varietal expressions from renowned appellations."},
+  {name: "Kyoto Wine Kaleidoscope", description: "Experience Kyoto's wine kaleidoscope, exploring a diverse array of Japanese wines paired with traditional Kyoto cuisine, guided by knowledgeable sommeliers."},
+  {name: "Burgundy Bonanza in Tokyo", description: "Experience the beauty of Burgundy in Tokyo, with a curated tasting highlighting the elegance and complexity of Burgundian wines paired with gourmet bites."},
+  {name: "Osaka Oenophile Outing", description: "Discover Osaka's wine scene with an exclusive tasting event showcasing local favorites and international gems, accompanied by Osaka-style street food delights."},
+  {name: "Kanagawa Wine Walk", description: "Explore Kanagawa's wine scene, from boutique vineyards to urban wine bars, sampling a diverse selection of varietals and learning about the region's winemaking history."},
+  {name: "Chardonnay Chill in Kawasaki", description: "Unwind with Chardonnay in Kawasaki, where expert sommeliers lead a relaxed tasting session featuring premium labels and insider tips on food pairings."},
+  {name: "Sparkling Spectacular Showcase", description: "Indulge in a spectacular showcase of sparkling wines from around the world, curated by a sommelier to dazzle your senses and elevate your appreciation."},
+  {name: "Japanese Wine Wonderland", description: "Journey through Japan's burgeoning wine scene with a sommelier as your guide, sampling a diverse selection of wines from Hokkaido to Okinawa, each reflecting the unique terroir and craftsmanship of its region."},
+]
+
 10.times do |i|
-Service.create!(
-  # Name, prices, description
-  name: Faker::Lorem.sentence(word_count: 2),
-  price_hours: Faker::Number.between(from: 5000, to: 100000),
-  description: Faker::Lorem.paragraph(sentence_count: 1),
+selected_event = events.sample
+  Service.create!(
+    # Name, prices, description
+  name: selected_event[:name],
+  price_hours: Faker::Number.between(from: 2000, to: 30_000),
+  description: selected_event[:description],
   user: User.all.sample
 )
 end
