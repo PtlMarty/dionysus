@@ -1,18 +1,56 @@
-.card-booking {
+.card-booking-left {
   border-radius: 20px;
   height: 15rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  border-color: #f9f5d7;
+  background-color: #f9f5d7;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 12px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-booking-right {
+  border-radius: 20px;
+  height: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-color: #EEEEEE;
+  background-color: #EEEEEE;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 12px 0 rgba(0, 0, 0, 0.19);
+}
 
   .user-name {
     font-size: 1.5rem;
     font-weight: bold;
     color: #000;
   }
-}
 
 .booking-confirm {
   justify-content: center;
   align-items: center;
 }
+
+p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.mt-2-left {
+  position: relative;
+}
+
+.mt-2-right {
+  position: relative;
+}
+
+i {
+ position: sticky;
+}
+
+i.fa-hourglass-end-right {
+  position: sticky;
+  margin-top:20px;
+ }

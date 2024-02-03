@@ -16,7 +16,7 @@
                 <p class="no-bookings-msg text-center">No bookings yet</p>
                 <% else %>
                 <% @bookings.each do |booking| %>
-                <div class="card card-booking booking-info flex-column pt-3 m-3">
+                <div class="card card-booking-left booking-info flex-column pt-3 m-3">
                     <div class="card-body">
                         <h4 class="user-name">
                             <%= booking.service.user.first_name %>
@@ -34,7 +34,7 @@
                         </div>
                         <div class="mt-2">
                             <% if booking.status == "pending" %>
-                            <i class="fa-solid fa-hourglass-end" style="color:orange; font-size: 36px"></i>
+                            <i class="fa-solid fa-hourglass-end mt-5" style="color:#9E2A2B; font-size: 32px"></i>
                             <% elsif booking.status == "accepted" %>
                             <i class="fa-solid fa-check" style="color:green; font-size: 36px"></i>
                             <% else %>
@@ -57,11 +57,11 @@
                 <p class="no-bookings-msg text-center">No bookings yet</p>
                 <% else %>
                 <% @my_bookings_as_provider.each do |booking| %>
-                <div class="card card-booking booking-info flex-column pt-3 m-3 <%= booking.end_date < Time.now ? 'expired' : '' %>">
+                <div class="card card-booking-right booking-info flex-column pt-3 m-3 <%= booking.end_date < Time.now ? 'expired' : '' %>">
                     <div class="booking-info-title">
-                        <p class="user-name">
+                        <h4 class="user-name">
                             <%= booking.service.user.first_name %> <%= booking.service.user.last_name %>
-                        </p>
+                        </h4>
                     </div>
                     <div class="booking-info-details text-center">
                         <p><strong>From:</strong> <%= booking.start_date.strftime("%m-%d %H:%M") %> <i class="fas fa-long-arrow-alt-right"></i> <strong>To:</strong> <%= booking.end_date.strftime("%m-%d %H:%M") %></p>
@@ -87,7 +87,7 @@
                         </div>
                         <div class="mt-2">
                             <% if booking.status == "pending" %>
-                            <i class="fa-solid fa-hourglass-end" style="color:orange; font-size: 36px"></i>
+                            <i class="fa-solid fa-hourglass-end" style="color:#9E2A2B; font-size: 32px"></i>
                             <% elsif booking.status == "accepted" %>
                             <i class="fa-solid fa-check" style="color:green; font-size: 36px"></i>
                             <% else %>

@@ -1,6 +1,6 @@
 <%# iteration on all service with name, description and price in bootstrap card %>
 <div class = "container">
-  <h2 style="text-align:center">Our Listings</h2>
+  <h2 style="text-align:center">Listings</h2>
   <div class = "container-services d-flex">
       <% @services.each do |service| %>
         <div class="card card-profile my-5 mx-5" style="width: 18rem;">
@@ -18,7 +18,7 @@
               <% end %>
               </span>
             </div>
-            <%= link_to "details", service_path(service), class: "btn btn-primary", method: :get %>
+            <%= link_to "Details", service_path(service), class: "btn btn-primary mt-3", method: :get %>
           </div>
         </div>
       <% end %>
