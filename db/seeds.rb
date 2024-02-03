@@ -8,13 +8,22 @@ User.destroy_all
 
 
 puts "Creating Martin..."
-User.create(
+User.create!(
     first_name: "Martin",
     last_name: "Portal",
     email: "mail@mail.com",
     password: "secret",
-    picture: "https://avatars.githubusercontent.com/u/77490521?v=4",
-    password_confirmation: "secret",
+    picture: "https://kitt.lewagon.com/placeholder/users/PtlMarty",
+  )
+puts "done"
+
+puts "Creating jane..."
+User.create!(
+    first_name: "Jane",
+    last_name: "Kina",
+    email: "jane@mail.com",
+    password: "secret",
+    picture: "https://kitt.lewagon.com/placeholder/users/Ecosyscoop",
   )
 puts "done"
 
@@ -32,7 +41,6 @@ puts "Creating users..."
     email: result["email"],
     picture: result["picture"]["large"],
     password: "password",
-    password_confirmation: "password",
   )
   end
 end
