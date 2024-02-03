@@ -48,6 +48,19 @@ class ServicesController < ApplicationController
     end
   end
 
+  def edit
+    @service = Service.find(params[:id])
+  end
+
+  def update
+    @services = Service.all
+    @service = Service.find(params[:id])
+    if @service.update(service_params)
+      redirect_to services_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
 
   private
 

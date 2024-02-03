@@ -25,7 +25,13 @@
   <div class = "container">
     <h5> Your next wine experience</h5>
     <hr>
-    <%= render "bookings/new_form", service: [@service, @booking] %> <%#passing to partial% %>
+
+    <% if current_user == @service.user %>
+      <%= render 'edit' %>
+      <% else %>
+      <%= render "bookings/new_form", service: [@service, @booking] %> <%#passing to partial% %>
+    <% end %>
+
   </div>
 </div>
 
