@@ -33,7 +33,7 @@ class BookingsController < ApplicationController
     if @booking.update(status: 'accepted')
       redirect_to @booking, notice: 'Booking was accepted.'
     else
-      render :show, alert: 'Failed to accept booking.'
+      render :show, alert: 'Failed to accept booking.', status: :unprocessable_entity
     end
   end
 
@@ -42,7 +42,7 @@ class BookingsController < ApplicationController
     if @booking.update(status: 'rejected')
       redirect_to @booking, notice: 'Booking was rejected.'
     else
-      render :show, alert: 'Failed to reject booking.'
+      render :show, alert: 'Failed to reject booking.', status: :unprocessable_entity
     end
   end
 

@@ -31,14 +31,13 @@
   font-style: italic;
 }
 
-.card-subtitle {
 
+.card-subtitle {
   display: -webkit-box;
   text-overflow: ellipsis;
   -webkit-line-clamp: 3;
   overflow: hidden;
   -webkit-box-orient: vertical;
-
 }
 
 .card-body img {
