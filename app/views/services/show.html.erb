@@ -1,4 +1,4 @@
-<div class= "container">
+<div class="container">
   <div class="card-show">
     <%= image_tag "bottles.jpg" %>
     <div class="card-show-infos">
@@ -12,9 +12,12 @@
       <%= cl_image_tag(@service.user.picture, { alt: @service.user.first_name, class: "card-show-user avatar-bordered"})%>
     </div>
   </div>
-  <div>
+  <div class="flex-column p-5 b-none mt-3">
     <% if current_user == @service.user %>
-      <%= render 'edit' %>
+      <div class="text-center w-75 align-center mx-auto">
+        <%= render 'edit' %>
+        <%= link_to "delete", service_path(@service), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-danger mt-2 align-center" %>
+      </div>
     <% else %>
       <%= render "bookings/new_form", service: [@service, @booking] %> <%#passing to partial% %>
       <div class="service-tag">
