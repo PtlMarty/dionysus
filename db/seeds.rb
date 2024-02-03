@@ -14,7 +14,6 @@ User.create(
     email: "mail@mail.com",
     password: "secret",
     picture: "https://avatars.githubusercontent.com/u/77490521?v=4",
-    password_confirmation: "secret",
   )
 puts "done"
 
@@ -32,7 +31,6 @@ puts "Creating users..."
     email: result["email"],
     picture: result["picture"]["large"],
     password: "password",
-    password_confirmation: "password",
   )
   end
 end
