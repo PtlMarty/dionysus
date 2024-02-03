@@ -2,8 +2,10 @@ class ServicesController < ApplicationController
   def index
     @services = Service.all
     if params[:mine].present?
+      # this is linked to the nav bar's link to services_path :mine
       @services = @services.for_user(current_user.id)
     else
+      # this is the default view - services shown will be not the current user's
       @services = @services.without_user(current_user.id)
     end
     if params[:query].present?
