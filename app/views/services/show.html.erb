@@ -5,7 +5,7 @@
       <div>
         <h2><%= @service.name %></h2>
         <p>
-          <i class="fa-solid fa-user"></i> Wine Expert <%= @service.user.first_name %>
+          <i class="fa-solid fa-user"></i> Wine Expert <%= @service.user.first_name %> <%= @service.user.last_name %>
         </p>
       </div>
       <h2 class="card-show-pricing"> <%= number_to_currency(@service.price_hours, unit: "¥", separator: ".", delimiter: ",", precision: 0, round_mode: :up) %>/hr</h2>
@@ -13,26 +13,19 @@
     </div>
   </div>
 
-  <div class="container-center">
+  <div>
+    <%= render "bookings/new_form", service: [@service, @booking] %> <%#passing to partial% %>
+  </div>
+
+  <hr>
+  <div>
     <p><%= @service.description %></p>
     <div class="service-tag">
       <% @service.tag_list.each do |tag| %>
         <span><%= tag %></span>
       <% end %>
     </div>
-    <%# <%= @service.tag_list %>
   </div>
-  <div class = "container">
-    <h5> Your next wine experience</h5>
-    <hr>
-    <%= render "bookings/new_form", service: [@service, @booking] %> <%#passing to partial% %>
-  </div>
-</div>
 
-<div style="float:right; width:20% margin:1em">
-  <div class = "container">
-    <h5> Your next wine experience</h5>
-    <hr>
-    <%= render "bookings/new_form", service: [@service, @booking] %> <%#passing to partial% %>
   </div>
 </div>
