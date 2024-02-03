@@ -1,26 +1,32 @@
-<div class="card-show">
-  <%= image_tag "bottles.jpg" %>
-  <div class="card-show-infos">
-    <div>
-      <h2><%= @service.name %></h2>
-      <p>
-        <i class="fa-solid fa-user"></i> Wine Expert <%= @service.user.first_name %>
-      </p>
+<div class= "container">
+  <div class="card-show">
+    <%= image_tag "bottles.jpg" %>
+    <div class="card-show-infos">
+      <div>
+        <h2><%= @service.name %></h2>
+        <p>
+          <i class="fa-solid fa-user"></i> Wine Expert <%= @service.user.first_name %>
+        </p>
+      </div>
+      <h2 class="card-show-pricing"> <%= number_to_currency(@service.price_hours, unit: "¥", separator: ".", delimiter: ",", precision: 0, round_mode: :up) %>/hr</h2>
+      <%= cl_image_tag(@service.user.picture, { alt: @service.user.first_name, class: "card-show-user avatar-bordered"})%>
     </div>
-    <h2 class="card-show-pricing"> <%= number_to_currency(@service.price_hours, unit: "¥", separator: ".", delimiter: ",", precision: 0, round_mode: :up) %>/hr</h2>
-    <%= cl_image_tag(@service.user.picture, { alt: @service.user.first_name, class: "card-show-user avatar-bordered"})%>
   </div>
-</div>
 
-<div class="container-center">
-  <p><%= @service.description %></p>
-  <div class="service-tag">
-    <% @service.tag_list.each do |tag| %>
-      <span><%= tag %></span>
-    <% end %>
+  <div class="container-center">
+    <p><%= @service.description %></p>
+    <div class="service-tag">
+      <% @service.tag_list.each do |tag| %>
+        <span><%= tag %></span>
+      <% end %>
+    </div>
+    <%# <%= @service.tag_list %>
   </div>
-  <%# <%= @service.tag_list %> 
-  <%= link_to "New booking", new_service_booking_path(@service), class: "btn btn-primary" %>
+  <div class = "container">
+    <h5> Your next wine experience</h5>
+    <hr>
+    <%= render "bookings/new_form", service: [@service, @booking] %> <%#passing to partial% %>
+  </div>
 </div>
 
 <div style="float:right; width:20% margin:1em">

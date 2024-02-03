@@ -1,12 +1,13 @@
 .card-booking {
+  border-radius: 20px;
+  height: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  width: 30vw;
 }
 
-.user-name {
-  font-weight: bold;
-  font-size: 46px;
+.booking-confirm {
+  justify-content: center;
+  align-items: center;
 }
