@@ -13,9 +13,9 @@ class User < ApplicationRecord
 
   def avatar_picture
     if photo.attached?
-      photo.key
+      photo
     else
-      "default_avatar.png"
+      "https://avatars.githubusercontent.com/u/77490521?v=4"
     end
   end
 end
