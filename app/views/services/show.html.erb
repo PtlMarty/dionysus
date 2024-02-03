@@ -13,31 +13,18 @@
     </div>
   </div>
   <div>
-    <%= render "bookings/new_form", service: [@service, @booking] %> <%#passing to partial% %>
-  </div>
-  <hr>
-  <div>
-    <p><%= @service.description %></p>
-    <div class="service-tag">
-      <% @service.tag_list.each do |tag| %>
-        <span><%= tag %></span>
-      <% end %>
-    </div>
-  </div>
-  <div class = "container">
-    <h5> Your next wine experience</h5>
-    <hr>
     <% if current_user == @service.user %>
       <%= render 'edit' %>
     <% else %>
       <%= render "bookings/new_form", service: [@service, @booking] %> <%#passing to partial% %>
-    <% end %>
-  </div>
-</div>
-<div style="float:right; width:20% margin:1em">
-  <div class = "container">
-    <h5> Your next wine experience</h5>
-    <hr>
-    <%= render "bookings/new_form", service: [@service, @booking] %> <%#passing to partial% %>
+      <div class="service-tag">
+        <% @service.tag_list.each do |tag| %>
+          <span><%= tag %></span>
+        <% end %>
+      </div>
+    <% end %>  </div>
+  <hr>
+  <div>
+    <p><%= @service.description %></p>
   </div>
 </div>
