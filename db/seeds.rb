@@ -17,6 +17,16 @@ User.create!(
   )
 puts "done"
 
+puts "Creating jane..."
+User.create!(
+    first_name: "Jane",
+    last_name: "Kina",
+    email: "jane@mail.com",
+    password: "secret",
+    picture: "https://kitt.lewagon.com/placeholder/users/Ecosyscoop",
+  )
+puts "done"
+
 # fetching api to create random users with restapi
 puts "Creating users..."
 10.times do |i|
