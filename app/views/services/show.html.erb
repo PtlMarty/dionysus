@@ -12,9 +12,12 @@
       <%= cl_image_tag(@service.user.picture, { alt: @service.user.first_name, class: "card-show-user avatar-bordered"})%>
     </div>
   </div>
+
   <div>
     <%= render "bookings/new_form", service: [@service, @booking] %> <%#passing to partial% %>
   </div>
+
+  <hr>
   <div>
     <p><%= @service.description %></p>
     <div class="service-tag">
