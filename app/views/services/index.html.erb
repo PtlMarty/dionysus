@@ -1,10 +1,3 @@
-<%# <div style="float:left; width:20% margin:1em">
-  <div class = "container">
-    <h5> Create my service </h5>
-    <hr>
-    <%= render "services/new_form", service: @service %> <%#passing to partial% %>
-  <%# </div>
-</div> %>
 <%# iteration on all service with name, description and price in bootstrap card %>
 <div class = "container">
   <h2 style="text-align:center">Our Listings</h2>
@@ -14,7 +7,8 @@
           <div class="card-body">
             <h5 class="card-title"><%= service.user.first_name %> <%= service.user.last_name %></h5>
             <hr style="border-top: dotted 1px;">
-            <img src= "<%= service.user.picture %>" alt="user's photo">
+            <%# <img src= "<%= service.user.picture %>
+            <%= cl_image_tag(service.user.picture, alt: "user's photo", width: 300, height: 300, crop: :fill) %>
             <p class="card-text"><%= number_to_currency(service.price_hours, unit: "¥", separator: ".", delimiter: ",", precision: 0, round_mode: :up) %>/hr </p>
             <h6 class="card-subtitle mb-2 text-muted"><%= service.description %></h6>
             <div class="card-tag">
