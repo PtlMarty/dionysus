@@ -9,13 +9,13 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true
-  has_one_attached :photo
+  has_one_attached :picture
 
   def avatar_picture
-    if photo.attached?
-      photo
-    else
+    # if photo.attached?
+    #   picture
+    # else
       "https://avatars.githubusercontent.com/u/77490521?v=4"
-    end
+    # end
   end
 end
