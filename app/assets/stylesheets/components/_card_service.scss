@@ -2,13 +2,11 @@
   margin-top: 60px;
   }
 
-  @keyframes vibrate {
-    // 0% { transform: translate(0, 0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(2px, -2px); }
-    60% { transform: translate(-2px, 2px); }
-    // 80% { transform: translate(2px, -2px); }
-    // 100% { transform: translate(0, 0); }
+  .container-services {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 6px;
   }
 
 .card {
@@ -20,8 +18,8 @@
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 12px 0 rgba(0, 0, 0, 0.19);
   &:hover {
     background-color: #fff1a1;
+    transform: scale(0.9);
     transition: background-color 0.5s;
-    // background-image: url("logo.png");
   }
 }
 
@@ -59,7 +57,6 @@
 
 .card-body h6 {
   height: 3em;
-  // overflow: scroll;
 }
 
 .card-body img {
