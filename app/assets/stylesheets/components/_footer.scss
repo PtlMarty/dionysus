@@ -1,15 +1,27 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.wrapper {
+  min-height: 100%;
+  position: relative;
+}
+
+.content {
+  padding-bottom: 50px; /* Height of the footer */
+}
+
 .footer {
-  position: fixed;
-  left: 0;
+  position: absolute;
   bottom: 0;
   width: 100%;
-  background: #D9D9D9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 50px;
-  padding: 30px 30px;
-  color: rgba(0,0,0,0.3);
+  background-color: #D9D9D9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.3);
 }
 .footer-links {
   display: flex;
