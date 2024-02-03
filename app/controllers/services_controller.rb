@@ -1,6 +1,11 @@
 class ServicesController < ApplicationController
   def index
     @services = Service.all
+    if params[:mine].present?
+      @services = @services.for_user(current_user.id)
+    else
+      @services = @services.without_user(current_user.id)
+    end
     if params[:query].present?
       sql_subquery = <<~SQL
         services.name ILIKE :query
